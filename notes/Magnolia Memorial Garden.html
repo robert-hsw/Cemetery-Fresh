@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styled Text and Lightbox</title>
+    <style>
+        .line1 { color: rgb(107, 193, 255); font-size: 18px; }
+        .line2 { color: rgb(223, 248, 121); font-size: 18px; }
+        .line3 { color: rgb(248, 129, 133); font-size: 18px; }
+        a { color: #66ff6e; }
+    </style>
+</head>
+<body>
+    <!-- First Calculator -->
+    <div class="line3">Upright: we set and stakeout fee 35 cents/sq inch</div>
+    <div style="margin-top: 20px;">
+        <label for="width">Width:</label>
+        <input type="number" id="width" placeholder="Enter width" step="0.01">
+    
+        <label for="length">Length:</label>
+        <input type="number" id="length" placeholder="Enter length" step="0.01">
+    
+        <button id="calculate-btn">Calculate</button>
+    
+        <div id="result" style="margin-top: 10px; font-size: 18px; color: rgb(223, 248, 121);"></div>
+    </div>
+
+    <br>
+
+    <!-- Second Calculator -->
+    <div class="line1">Flat: cemetery setting at 70 cents/sq inch</div>
+    <div style="margin-top: 20px;">
+        <label for="width2">Width:</label>
+        <input type="number" id="width2" placeholder="Enter width" step="0.01">
+    
+        <label for="length2">Length:</label>
+        <input type="number" id="length2" placeholder="Enter length" step="0.01">
+    
+        <button id="calculate-btn2">Calculate</button>
+    
+        <div id="result2" style="margin-top: 10px; font-size: 18px; color: rgb(223, 248, 121);"></div>
+    </div>
+
+    <br>
+    <div class="line2">Ron, Phone: 281 356-3363, <a href="#" onclick="navigator.clipboard.writeText('magnoliafh@yahoo.com'); return false;">magnoliafh@yahoo.com</a></div>
+    <div class="line2">811 Magnolia Blvd, Magnolia, TX 77355</div>
+
+    <script type="text/javascript" data-calculator-type="magnolia-memorial">
+        (function() {
+            // Initialize calculator functions object if it doesn't exist
+            window.calculatorFunctions = window.calculatorFunctions || {};
+            
+            window.calculatorFunctions['magnolia-memorial'] = {
+                // Setup function that will be called by the parent page
+                setup: function() {
+                    const container = document.getElementById('notes-container');
+                    
+                    // Upright calculator
+                    const calculateBtn = container.querySelector('#calculate-btn');
+                    if (calculateBtn) {
+                        calculateBtn.addEventListener('click', function() {
+                            const width = parseFloat(container.querySelector('#width').value);
+                            const length = parseFloat(container.querySelector('#length').value);
+
+                            if (isNaN(width) || isNaN(length)) {
+                                container.querySelector('#result').innerText = "Please enter valid numbers for width and length.";
+                                return;
+                            }
+
+                            const total = length * width * 0.35;
+                            container.querySelector('#result').innerText = `Total: $${total.toFixed(2)}`;
+                        });
+                    }
+
+                    // Flat calculator
+                    const calculateBtn2 = container.querySelector('#calculate-btn2');
+                    if (calculateBtn2) {
+                        calculateBtn2.addEventListener('click', function() {
+                            const width = parseFloat(container.querySelector('#width2').value);
+                            const length = parseFloat(container.querySelector('#length2').value);
+
+                            if (isNaN(width) || isNaN(length)) {
+                                container.querySelector('#result2').innerText = "Please enter valid numbers for width and length.";
+                                return;
+                            }
+
+                            const total = length * width * 0.70;
+                            container.querySelector('#result2').innerText = `Total: $${total.toFixed(2)}`;
+                        });
+                    }
+                }
+            };
+
+            // For standalone page functionality
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    window.calculatorFunctions['magnolia-memorial'].setup();
+                });
+            } else {
+                window.calculatorFunctions['magnolia-memorial'].setup();
+            }
+        })();
+    </script>
+</body>
+</html>

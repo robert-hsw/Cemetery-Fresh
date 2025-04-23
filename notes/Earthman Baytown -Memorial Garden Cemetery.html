@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styled Text and Lightbox</title>
+    <style>
+        .line1 { color: rgb(107, 193, 255); font-size: 18px; }
+        .line2 { color: rgb(223, 248, 121); font-size: 18px; }
+        .line3 { color: rgb(248, 129, 133); font-size: 18px; }
+        
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            text-align: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+        }
+        a { color: #66ff6e; }
+    </style>
+</head>
+<body>
+    <div class="line1">MARKER STAKE OUT: $275</div>
+    <div class="line1">MONUMENT STAKE OUT: $320</div>
+    <div class="line1">Foundation poured for Bemch/Monuments $1395</div>
+    <div class="line1">Slants and Bevels not allowed</div>
+    <div class="line1">5 DAYS notices</div>
+
+
+    <br>
+    <div class="line2">Laura, Phone: 281 422-8181, Fax: 281 427-1374, <a href="#" onclick="navigator.clipboard.writeText('Laura.GuerraLeon@sci-us.com'); return false;">Laura.GuerraLeon@sci-us.com</a>
+    </div>
+    <div class="line2">8624 Garth Rd Baytown Tx 7752</div>
+
+</body>
+</html>

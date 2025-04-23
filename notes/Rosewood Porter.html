@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styled Text and Lightbox</title>
+    <style>
+        .line1 { color: rgb(107, 193, 255); font-size: 18px; }
+        .line2 { color: rgb(223, 248, 121); font-size: 18px; }
+        .line3 { color: rgb(248, 129, 133); font-size: 18px; }  
+        a { color: #66ff6e; }
+    </style>
+</head>
+<body>
+    <div class="line1">STAKE OUT FEE $0.5/Single</div>
+    <div class="line3">Foundation made by Rosewood, no companion flush, no litho or any paint</div>
+
+    <div style="margin-top: 20px;">
+        <label for="width">Width:</label>
+        <input type="number" id="width" placeholder="Enter width" step="0.01">
+    
+        <label for="length">Length:</label>
+        <input type="number" id="length" placeholder="Enter length" step="0.01">
+    
+        <button id="calculate-btn">Calculate</button>
+    
+        <div id="result" style="margin-top: 10px; font-size: 18px; color: rgb(223, 248, 121);"></div>
+    </div>
+
+    <br>
+    <div class="line2">Ron, Phone: 281 441-2171, <a href="#" onclick="navigator.clipboard.writeText('rlofton@rosewood.cc'); return false;">rlofton@rosewood.cc</a>
+    </div>
+    <div class="line2">22271 U.S. Hwy 59 Porter, Texas 77365</div>
+
+    <script type="text/javascript" data-calculator-type="rosewood-humble">
+    (function() {
+        window.calculatorFunctions = window.calculatorFunctions || {};
+        
+        window.calculatorFunctions['rosewood-humble'] = {
+            setup: function() {
+                const container = document.getElementById('notes-container');
+                
+                const calculateBtn = container.querySelector('#calculate-btn');
+                if (calculateBtn) {
+                    calculateBtn.addEventListener('click', function() {
+                        const width = parseFloat(container.querySelector('#width').value);
+                        const length = parseFloat(container.querySelector('#length').value);
+
+                        if (isNaN(width) || isNaN(length)) {
+                            container.querySelector('#result').innerText = "Please enter valid numbers for width and length.";
+                            return;
+                        }
+
+                        const total = length * width * 0.5;
+                        container.querySelector('#result').innerText = `Total: $${total.toFixed(2)}`;
+                    });
+                }
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                window.calculatorFunctions['rosewood-humble'].setup();
+            });
+        } else {
+            window.calculatorFunctions['rosewood-humble'].setup();
+        }
+    })();
+    </script>
+</body>
+</html>

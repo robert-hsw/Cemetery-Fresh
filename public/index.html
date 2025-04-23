@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cemetery Documentation System</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Cemeteries</h3>
+            <div class="search-box"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Cemetery Name -->
+            <div class="cemetery-name-container">
+                <h2 id="cemetery-name" class="cemetery-name">Select a Cemetery</h2>
+            </div>
+
+            <!-- Documents and Notes Row -->
+            <div class="content-row">
+                <!-- Documents Section -->
+                <div class="documents">
+                    <h3>Documents</h3>
+                    <div id="documents-container"></div>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="notes">
+                    <h3>Notes</h3>
+                    <div id="notes-container"></div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map">
+                <div id="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            <!-- Info Row -->
+            <div class="info-row">
+                <div id="zone-container" class="info-box"></div>
+                <div id="distance-container" class="info-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

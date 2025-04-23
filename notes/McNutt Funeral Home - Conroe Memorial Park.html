@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cemetery Fee Calculator</title>
+    <style>
+        .line1 { color: rgb(107, 193, 255); font-size: 18px; }
+        .line2 { color: rgb(223, 248, 121); font-size: 18px; }
+        .line3 { color: rgb(248, 129, 133); font-size: 18px; }
+        a { color: #66ff6e; }
+        
+        .input-group {
+            margin: 10px 0;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        input {
+            padding: 5px;
+            width: 150px;
+        }
+        button {
+            margin: 10px 0;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="line3">Cemetery fee: $1 / sq inch</div>
+
+    <div class="input-group">
+        <label for="width">Width:</label>
+        <input type="number" id="width" step="any">
+    </div>
+    <div class="input-group">
+        <label for="length">Length:</label>
+        <input type="number" id="length" step="any">
+    </div>
+    
+    <button id="calculate-fee-btn-nested">Calculate</button>
+    <div id="result"></div>
+
+    <br>
+    <div class="line2">Andrea Vela, Phone: 616 828-5731, Fax: 936 756-2744, <a href="#" onclick="navigator.clipboard.writeText('avela@mcnuttfuneralhome.com'); return false;">avela@mcnuttfuneralhome.com</a></div>
+    <div class="line2">1703 Porter Road Conroe, Tx 77301</div>
+
+    <script type="text/javascript" data-calculator-type="mcnutt-funeral">
+    (function() {
+        window.calculatorFunctions = window.calculatorFunctions || {};
+        
+        window.calculatorFunctions['mcnutt-funeral'] = {
+            setup: function() {
+                const container = document.getElementById('notes-container');
+                
+                const calcBtn = container.querySelector('#calculate-fee-btn-nested');
+                if (calcBtn) {
+                    calcBtn.addEventListener('click', function() {
+                        const width = parseFloat(container.querySelector('#width').value);
+                        const length = parseFloat(container.querySelector('#length').value);
+                        
+                        if (isNaN(width) || isNaN(length)) {
+                            container.querySelector('#result').innerText = "Please enter valid numbers for width and length.";
+                            return;
+                        }
+                        
+                        const total = width * length;
+                        container.querySelector('#result').innerText = `Total: $${total.toFixed(2)}`;
+                    });
+                }
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                window.calculatorFunctions['mcnutt-funeral'].setup();
+            });
+        } else {
+            window.calculatorFunctions['mcnutt-funeral'].setup();
+        }
+    })();
+    </script>
+</body>
+</html>

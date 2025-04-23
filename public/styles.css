@@ -1,0 +1,227 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dark Mode Colors */
+:root {
+    --dark-bg: #1a1a1a;
+    --darker-bg: #121212;
+    --sidebar-bg: #242424;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --hover-color: #2c2c2c;
+    --link-color: #66ff6e;
+    --box-bg: #242424;
+}
+
+body.dark-mode {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+}
+
+.search-box {
+    margin-bottom: 1rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+}
+
+.cemetery-list {
+    list-style: none;
+}
+
+.cemetery-list li {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cemetery-list li:hover {
+    background-color: var(--hover-color);
+}
+
+.cemetery-list li.selected {
+    background-color: #1a4d80;
+    color: white;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #101010;
+}
+
+/* Cemetery Name Styles */
+.cemetery-name-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.15rem;
+    background-color: var(--darker-bg);
+    border-radius: 2px;
+    border: 2px solid #759c30;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.cemetery-name {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    transform: translateX(0);
+}
+
+.cemetery-name.animate {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+
+
+/* Content Row Layout */
+.content-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.documents, .notes {
+    flex: 1;
+    background-color: var(--box-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    
+}
+
+#documents-container, #notes-container {
+    height: 226px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background-color: #161616;
+    border-radius: 4px;
+}
+
+.file-item {
+    margin-bottom: 0.5rem;
+}
+
+.file-item a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.file-item a:hover {
+    text-decoration: underline;
+}
+
+/* Map Styles */
+.map {
+    margin-bottom: 1.5rem;
+}
+
+#map {
+    height: 360px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* Info Row Styles */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--box-bg);
+    border-radius: 4px;
+    
+}
+
+.info-box {
+    flex: 1;
+    padding: 1rem;
+    background-color: #161616;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #b3e63c;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Custom scrollbar for containers */
+#documents-container::-webkit-scrollbar,
+#notes-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#documents-container::-webkit-scrollbar-track,
+#notes-container::-webkit-scrollbar-track {
+    background: var(--darker-bg);
+}
+
+#documents-container::-webkit-scrollbar-thumb,
+#notes-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+#documents-container::-webkit-scrollbar-thumb:hover,
+#notes-container::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Dark mode for Leaflet map */
+.leaflet-container {
+    background-color: var(--darker-bg);
+}

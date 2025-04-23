@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styled Text and Lightbox</title>
+    <style>
+        .line1 { color: rgb(107, 193, 255); font-size: 18px; }
+        .line2 { color: rgb(223, 248, 121); font-size: 18px; }
+        .line3 { color: rgb(248, 129, 133); font-size: 18px; }
+        a { color: #66ff6e; }
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            text-align: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+        }
+        a { color: #66ff6e; }
+    </style>
+</head>
+<body>
+    <div class="line1">STAKE OUT: $425</div>
+    <div class="line1">Only Bronze markers(Flush) on Granite Bases & Granite Benches.</div>
+    <div class="line1">Ledgers 6" thick, no foundation needed</div><br>
+    <img src="/notes/Forest Lawn.jpg" onclick="openLightbox(this)" style="cursor:pointer;">
+    
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img">
+    </div>
+
+    <br>
+    <div class="line2">KENDALL, Phone: 713 991-2313, Fax:  713 991-7253, <a href="#" onclick="navigator.clipboard.writeText('kmoore@plcorp.com'); return false;">kmoore@plcorp.com</a></div>
+    <div class="line2">8601 Almeda Genoa Road Houston, TX 77075</div>
+
+
+    <script>
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'block';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
